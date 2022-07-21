@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "compare": "c",
+        "ddos.h": "c",
+        "ip.h": "c"
+    }
+}
