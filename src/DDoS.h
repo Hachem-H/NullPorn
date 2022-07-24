@@ -42,5 +42,5 @@ int ValidIP(char* ip);
 void InterruptHandler(int signal);
 uint16_t Checksum(uint16_t* pointer, int numBytes);
 
-void  Flood(const char* ip);
+void  Flood(void* ip);
 char* DNSLookup(const char* domain);

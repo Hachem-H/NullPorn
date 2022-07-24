@@ -5,6 +5,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <getopt.h>
+#include <pthread.h>
 
 typedef enum FileType_t
 {
@@ -99,12 +100,21 @@ int main(int argc, char* argv[])
         token = strtok(NULL, "\n");
         index++;
     }
-
+   
+    pthread_t* threads = (pthread_t*) malloc(sizeof(pthread_t) * numberLines);
     for (uint32_t i = 0; i < numberLines; i++)
-        printf("%d: %s\n", i, lines[i]);
+    {
+        if (fileType == FileType_Domains)
+            pthread_create(&threads[i], NULL, Flood, DNSLookup(lines[i]));
+        else if (fileType == FileType_IpAddresses)
+            pthread_create(&threads[i], NULL, Flood, lines[i]);
+    }
+    
+    pthread_exit(NULL);
 
     if (fileRead)
     {
+        free(threads);
         for (uint32_t i = 0; i < numberLines; i++)
             free(lines[i]);
 

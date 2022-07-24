@@ -64,10 +64,11 @@ uint16_t Checksum(uint16_t* pointer, int numBytes)
     return answer;
 }
 
-void Flood(const char* destinationIP)
+void Flood(void* destinationIPvoid)
 {
-    int destinationPort    = HTTP_PORT;
-    int option = 0;
+    char* destinationIP = (char*) destinationIPvoid;
+    int destinationPort = HTTP_PORT;
+    int option          = 0;
 
     srand(time(0));                
     signal(SIGINT, InterruptHandler);
