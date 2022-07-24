@@ -4,7 +4,7 @@ Recently, my friend and I have been seeing a lot of porn and 18+ based videos po
 Its written in C using the built in GCC `netinet API`. I dont know on what platforms this can run in, but I am pretty condifident it works well with any unix based OS *(Linux, MacOS, OpenBSD...)*. The compiler is `gcc` obviously and I also dont know if `clang` can run it. It relies on the `POSIX pthead_t` so it's not cross platform with Win32 based platforms.
 
 ## Usage
-```
+```sh
 $ make build
 
 $ sudo ./NullPorn -d [DOMAIN]
