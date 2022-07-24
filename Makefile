@@ -10,10 +10,10 @@ INTERMEDIATES=$(BIN_DIR)/FileUtils.o \
 			  $(BIN_DIR)/DNS.o
 BIN_NAME=NullPorn
 
-all:
-	@mkdir -p $(BIN_DIR)
-	@make build
+all: createDir build clean
 
+createDir:
+	@mkdir -p $(BIN_DIR)
 build: $(INTERMEDIATES)
 	$(CC) $(CFLAGS) $(INTERMEDIATES) -o $(BIN_NAME)
 clean:
