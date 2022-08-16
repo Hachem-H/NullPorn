@@ -1,4 +1,4 @@
-![logo](https://raw.githubusercontent.com/hh-Naram/NullPorn/master/res/Logo.png)
+![logo](res/Logo.png)
 
 # NullPorn
 Recently, my friend and I have been seeing a lot of porn and 18+ based videos pop up on our feeds on platforms like [Youtube](https://youtube.com)/[Youtube Short](https://youtube.com/shorts) and [TikTok](https://tiktok.com). The spam bots became far too annoying and honestly just outright disgusting. Intern, I decided to take matters into my own hands in writing a DDoS flood script and a couple DNS tracker scripts to take some of these websites down.
